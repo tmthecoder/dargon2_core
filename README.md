@@ -20,6 +20,6 @@ main() {
 
 ## Features and bugs
 
-Please file feature requests and bugs at the [issue tracker][tracker].
+Please file feature requests and bugs at the [issue tracker].
 
-[tracker]: http://example.com/issues/replaceme
+[issue tracker]: https://github.com/tmthecoder/dargon2_core/issues

@@ -5,8 +5,8 @@
 
 import 'dart:convert';
 import 'dart:ffi';
-import 'package:dargon2_core/src/exceptions/DArgon2ErrorCodes.dart';
-import 'package:dargon2_core/src/exceptions/DArgon2Exception.dart';
+import 'package:dargon2_core/src/exceptions/dargon2_error_codes.dart';
+import 'package:dargon2_core/src/exceptions/dargon2_exception.dart';
 import 'package:dargon2_core/src/native/loaders/lib_loader.dart';
 import 'package:dargon2_core/src/native/local_binder.dart';
 import 'package:dargon2_core/src/utils/dargon2_result.dart';
