@@ -1,16 +1,5 @@
-import 'package:dargon2_core/dargon2_core.dart';
-import 'package:test/test.dart';
-
+/// Tests can't work here since we don't have any library loading mechanism
+/// implemented. We can run the dargon2 tests as they load the
+/// dart native library
 void main() {
-  group('A group of tests', () {
-    final awesome = Awesome();
-
-    setUp(() {
-      // Additional setup goes here.
-    });
-
-    test('First Test', () {
-      expect(awesome.isAwesome, isTrue);
-    });
-  });
 }
