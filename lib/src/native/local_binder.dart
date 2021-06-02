@@ -126,7 +126,8 @@ class LocalBinder {
   /// Create an instanced class in order to allow the dylib to stay loaded through the session.
   static late LocalBinder _privateInstance;
 
-  static void initialize(LibLoader libLoader) => _privateInstance = LocalBinder._(libLoader);
+  static void initialize(LibLoader libLoader) =>
+      _privateInstance = LocalBinder._(libLoader);
 
   /// Callable method of type [_Argon2Hash] that binds to [_argon2_hash].
   late _Argon2Hash getHash;
