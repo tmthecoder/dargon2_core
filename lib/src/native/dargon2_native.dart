@@ -6,16 +6,18 @@ import 'dart:convert';
 import 'dart:ffi';
 import 'dart:typed_data';
 
+import 'package:dargon2_interface/dargon2_interface.dart';
 import 'package:ffi/ffi.dart';
 
-import '../../dargon2_core.dart';
+import 'loaders/lib_loader.dart';
 import 'local_binder.dart';
 
 class DArgon2Native extends DArgon2 {
-
   factory DArgon2Native._(LibLoader loader) => DArgon2Native(loader);
 
-  DArgon2Native(LibLoader loader) : super.native(loader);
+  DArgon2Native(LibLoader loader) {
+    LocalBinder.initialize(loader);
+  }
 
   /// The method to hash a byte array of type List<int> with Argon2.
   ///
@@ -29,12 +31,12 @@ class DArgon2Native extends DArgon2 {
   /// conversion options for the hash and encoded bytes.
   DArgon2Result hashPasswordBytesSync(List<int> password,
       {required Salt salt,
-        int iterations = 32,
-        int memory = 256,
-        int parallelism = 2,
-        int length = 32,
-        Argon2Type type = Argon2Type.i,
-        Argon2Version version = Argon2Version.V13}) {
+      int iterations = 32,
+      int memory = 256,
+      int parallelism = 2,
+      int length = 32,
+      Argon2Type type = Argon2Type.i,
+      Argon2Version version = Argon2Version.V13}) {
     //Create pointers to pass to the C method
     var passPointer = _setPtr(password);
     var saltPointer = _setPtr(salt.bytes);
@@ -61,7 +63,7 @@ class DArgon2Native extends DArgon2 {
     //Create new Lists of the hash and encoded values
     var hashBytes = List<int>.from(hash.asTypedList(length).cast());
     var encodedBytes =
-    List<int>.from(encoded.asTypedList(encodedLength).cast());
+        List<int>.from(encoded.asTypedList(encodedLength).cast());
     if (encodedBytes.last == 0) {
       encodedBytes.removeLast();
     }
@@ -120,10 +122,25 @@ class DArgon2Native extends DArgon2 {
   }
 
   @override
-  Future<DArgon2Result> hashPasswordBytes(List<int> password, {required Salt salt, int iterations = 32, int memory = 256, int parallelism = 2, int length = 32, Argon2Type type = Argon2Type.i, Argon2Version version = Argon2Version.V13}) async =>
-      hashPasswordBytesSync(password, salt: salt, iterations: iterations, memory: memory, parallelism: parallelism, length: length, type: type, version: version);
+  Future<DArgon2Result> hashPasswordBytes(List<int> password,
+          {required Salt salt,
+          int iterations = 32,
+          int memory = 256,
+          int parallelism = 2,
+          int length = 32,
+          Argon2Type type = Argon2Type.i,
+          Argon2Version version = Argon2Version.V13}) async =>
+      hashPasswordBytesSync(password,
+          salt: salt,
+          iterations: iterations,
+          memory: memory,
+          parallelism: parallelism,
+          length: length,
+          type: type,
+          version: version);
 
   @override
-  Future<bool> verifyHashBytes(List<int> password, List<int> encodedHash, {Argon2Type type = Argon2Type.i}) async =>
+  Future<bool> verifyHashBytes(List<int> password, List<int> encodedHash,
+          {Argon2Type type = Argon2Type.i}) async =>
       verifyHashBytesSync(password, encodedHash);
 }

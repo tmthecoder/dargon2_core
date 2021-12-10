@@ -4,7 +4,7 @@ import 'package:dargon2_core/dargon2_core.dart';
 
 void main() {
   // Create an instance of DArgon2
-  final argon2 = DArgon2(TestLibLoader());
+  final argon2 = DArgon2Native(TestLibLoader());
 }
 
 class TestLibLoader implements LibLoader {

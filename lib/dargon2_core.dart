@@ -3,11 +3,6 @@
 /// More dartdocs go here.
 library dargon2_core;
 
-export 'src/argon2.dart';
-export 'src/utils/salt.dart';
-export 'src/utils/dargon2_result.dart';
-export 'src/exceptions/dargon2_error_codes.dart';
-export 'src/exceptions/dargon2_exception.dart';
+export 'package:dargon2_interface/dargon2_interface.dart';
 export 'src/native/loaders/lib_loader.dart';
 export 'src/native/dargon2_native.dart';
-export 'src/web/dargon2_web.dart';
