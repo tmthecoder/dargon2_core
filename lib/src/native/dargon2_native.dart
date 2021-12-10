@@ -142,5 +142,5 @@ class DArgon2Native extends DArgon2 {
   @override
   Future<bool> verifyHashBytes(List<int> password, List<int> encodedHash,
           {Argon2Type type = Argon2Type.i}) async =>
-      verifyHashBytesSync(password, encodedHash);
+      verifyHashBytesSync(password, encodedHash, type: type);
 }

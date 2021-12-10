@@ -1,3 +1,6 @@
+## 2.0.1
+- Slight bug fix on a verification that missed the type 
+
 ## 2.0.0
 - BREAKING: All `sync` ending methods have been removed. Please use the asynchronous methods
 - All interface code has moved to the `dargon2_interface` plugin
