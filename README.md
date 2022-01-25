@@ -1,5 +1,11 @@
 ## dargon2_core
 
+# NOTE: Archive
+
+This repository has been archived. Don't worry, `dargon2_flutter` is still in development with full support! I've just moved this repository and all dargon2 components into a single `dargon2` repository: https://github.com/tmthecoder/dargon2
+
+---
+
 This library generally should not be used in most contexts
 
 This library is an umbrella library that contains all method bindings for dargon2 and dargon2_flutter's mobile components.
