@@ -2,7 +2,7 @@
 
 # NOTE: Archive
 
-This repository has been archived. Don't worry, `dargon2_flutter` is still in development with full support! I've just moved this repository and all dargon2 components into a single `dargon2` repository: https://github.com/tmthecoder/dargon2
+This repository has been archived. Don't worry, `dargon2_core` is still in development with full support! I've just moved this repository and all dargon2 components into a single `dargon2` repository: https://github.com/tmthecoder/dargon2
 
 ---
 
